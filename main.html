@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Password Strength Plugin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      background: #f9f9fb;
+      font-family: 'Quicksand', sans-serif;
+      color: #333;
+      width: 320px;
+    }
+
+    #container {
+      background: #ffffff;
+      border-radius: 14px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      animation: fadeIn 0.4s ease-in-out;
+    }
+
+    h1 {
+      font-size: 18px;
+      margin: 0 0 10px;
+      color: #2c3e50;
+      text-align: center;
+    }
+
+    .feature {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .feature-icon {
+      font-size: 20px;
+      margin-top: 2px;
+    }
+
+    .feature-text {
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 12px;
+      font-size: 12px;
+      color: #999;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <h1>🔐 Password Helper</h1>
+
+    <div class="feature">
+      <div class="feature-icon">🧠</div>
+      <div class="feature-text">
+        Real-time password strength analysis using advanced heuristics.
+      </div>
+    </div>
+
+    <div class="feature">
+      <div class="feature-icon">📉</div>
+      <div class="feature-text">
+        Warns you if your password has been found in known data breaches.
+      </div>
+    </div>
+
+    <div class="feature">
+      <div class="feature-icon">💡</div>
+      <div class="feature-text">
+        Offers actionable tips to create stronger, memorable passwords.
+      </div>
+    </div>
+
+    <div class="feature">
+      <div class="feature-icon">🚀</div>
+      <div class="feature-text">
+        Seamless integration while signing up or updating passwords on websites.
+      </div>
+    </div>
+
+    <div class="footer">
+      Activate any password field on a webpage to see the plugin in action!
+    </div>
+  </div>
+</body>
+</html>
