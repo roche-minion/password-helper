@@ -15,9 +15,6 @@ A lightweight, friendly Chrome extension that helps you create **strong, secure 
 - 💡 **Actionable Suggestions**  
   Offers clear, helpful tips for making your password stronger—based on best practices, not arbitrary rules.
 
-- ✨ **Non-intrusive & User-Friendly**  
-  No popups, no forms, no complexity—just helpful guidance embedded into your everyday password creation workflow.
-
 ---
 
 ## 🧭 How to Install on Google Chrome
@@ -52,6 +49,7 @@ A lightweight, friendly Chrome extension that helps you create **strong, secure 
 - As you type, it:
   - Evaluates your password strength
   - Checks if your password has been breached before
+  - Checks if you have reused the password before in any other site.
   - Gives you simple tips to improve your password
 
 ### ✅ Example Tip:
@@ -63,7 +61,8 @@ Unlike random password generators, this plugin encourages **natural, memorable, 
 
 ## 🔒 Why It’s Safe
 
-- No data is stored or sent anywhere except to **Have I Been Pwned** via a privacy-friendly k-anonymity API.
+- Raw Data is **not stored anywhere**.
+- Date is not sent anywhere except to **Have I Been Pwned** via a privacy-friendly k-anonymity API.
 - All password analysis happens **locally in your browser**.
 - No trackers, no cloud syncing, no nonsense.
 
@@ -75,5 +74,6 @@ Pull requests are welcome! If you’d like to suggest features or fix bugs, plea
 
 ---
 
-Created with ❤️ by Navya Deepika Vattikuti  
+Created with ❤️
+
 Saint Louis University – Master’s Research Project (CYBR 5960)
