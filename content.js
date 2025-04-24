@@ -49,14 +49,27 @@ function makeDraggable(panel, handle) {
   
     container.innerHTML = `
       <div id="drag-handle" style="
-        padding: 10px;
-        background-color: #f1f1f1;
-        cursor: move;
-        font-weight: bold;
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
-        color: #333;
-      ">🔐 Password Helper</div>
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #f1f1f1;
+  cursor: move;
+  font-weight: bold;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  color: #333;
+">
+  <span>🔐 Password Helper</span>
+  <button id="close-btn" style="
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    color: #999;
+    margin-left: 10px;
+  " title="Close panel">✖</button>
+</div>
       <div id="password-helper" style="padding: 16px;">
         <div id="helper-status">🔍 No password field detected.</div>
       <div id="helper-details" style="display: none;">
@@ -76,16 +89,21 @@ function makeDraggable(panel, handle) {
     `;
   
     document.body.appendChild(container);
+    document.getElementById("close-btn").addEventListener("click", () => {
+        container.style.display = "none";
+      });
     makeDraggable(container, container.querySelector("#drag-handle"));
     return document.getElementById("password-helper");
   }
   
   
   let panel = createFloatingPanel();
+  document.getElementById("password-helper-container").style.display = "none";
   let currentPassword = "";
   
   document.addEventListener("input", async (event) => {
     document.getElementById("save-status").textContent = "";
+    document.getElementById("password-helper-container").style.display = "block";
     if (event.target.type === "password") {
       const password = event.target.value;
       currentPassword = password;
