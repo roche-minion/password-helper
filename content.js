@@ -60,7 +60,7 @@ function makeDraggable(panel, handle) {
   border-top-right-radius: 10px;
   color: #333;
 ">
-  <span>🔐 Password Helper</span>
+  <span>🔐 Password Sensei</span>
   <button id="close-btn" style="
     background: none;
     border: none;
@@ -124,7 +124,7 @@ function makeDraggable(panel, handle) {
         document.getElementById("helper-details").style.display = "block";
   
         document.getElementById("helper-strength").textContent =
-          ["Very Weak", "Weak", "Fair", "Strong", "Very Strong"][result.score];
+          ["⛔ Very Weak", "⚠️ Weak", "☑️ Fair", "✅ Strong", "💖 Very Strong"][result.score];
   
         document.getElementById("helper-breach").textContent =
           breached ? "⚠️ Found in breaches" : "✅ Not found in breaches";

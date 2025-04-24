@@ -1,4 +1,4 @@
-# 🔐 Password Strength Enforcement Plugin
+# 🔐 Password Sensei
 
 A lightweight, friendly Chrome extension that helps you create **strong, secure passwords**—with **real-time feedback** and **breach detection**—without the frustration of using random password generators.
 
@@ -22,7 +22,7 @@ A lightweight, friendly Chrome extension that helps you create **strong, secure 
 1. **Download or Clone the Repository**
 
    ```bash
-   git clone https://github.com/your-username/password-strength-extension.git
+   git clone https://github.com/roche-minion/password-sensei.git
    ```
 
    Or simply download the `.zip` and extract it.
