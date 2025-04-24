@@ -1,20 +1,64 @@
-function createFloatingPanel() {
-    const panel = document.createElement("div");
-    panel.id = "password-helper";
-    panel.style.position = "fixed";
-    panel.style.top = "20px";
-    panel.style.right = "20px";
-    panel.style.backgroundColor = "#ffffff";
-    panel.style.border = "1px solid #ccc";
-    panel.style.boxShadow = "0 2px 10px rgba(0,0,0,0.15)";
-    panel.style.borderRadius = "10px";
-    panel.style.padding = "16px";
-    panel.style.fontFamily = "Segoe UI, sans-serif";
-    panel.style.fontSize = "14px";
-    panel.style.zIndex = "10000";
-    panel.style.maxWidth = "300px";
-    panel.innerHTML = `
-      <div id="helper-status">🔍 No password field detected.</div>
+function makeDraggable(panel, handle) {
+    let offsetX = 0, offsetY = 0, startX = 0, startY = 0;
+  
+    handle.onmousedown = dragStart;
+  
+    function dragStart(e) {
+      e.preventDefault();
+      startX = e.clientX;
+      startY = e.clientY;
+      document.onmousemove = drag;
+      document.onmouseup = stopDrag;
+    }
+  
+    function drag(e) {
+      e.preventDefault();
+      offsetX = startX - e.clientX;
+      offsetY = startY - e.clientY;
+      startX = e.clientX;
+      startY = e.clientY;
+  
+      panel.style.top = (panel.offsetTop - offsetY) + "px";
+      panel.style.left = (panel.offsetLeft - offsetX) + "px";
+      panel.style.right = "auto"; // prevent CSS override
+    }
+  
+    function stopDrag() {
+      document.onmouseup = null;
+      document.onmousemove = null;
+    }
+  }
+  
+
+  function createFloatingPanel() {
+    const container = document.createElement("div");
+    container.id = "password-helper-container";
+    container.style.position = "fixed";
+    container.style.top = "20px";
+    container.style.right = "20px";
+    container.style.zIndex = "10000";
+    container.style.borderRadius = "10px";
+    container.style.boxShadow = "0 2px 10px rgba(0,0,0,0.2)";
+    container.style.backgroundColor = "#ffffff";
+    container.style.fontFamily = "Segoe UI, sans-serif";
+    container.style.fontSize = "14px";
+    container.style.maxWidth = "320px";
+    container.style.userSelect = "none";
+    container.style.zIndex = "2147483647";
+
+  
+    container.innerHTML = `
+      <div id="drag-handle" style="
+        padding: 10px;
+        background-color: #f1f1f1;
+        cursor: move;
+        font-weight: bold;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        color: #333;
+      ">🔐 Password Helper</div>
+      <div id="password-helper" style="padding: 16px;">
+        <div id="helper-status">🔍 No password field detected.</div>
       <div id="helper-details" style="display: none;">
         <p><strong>Status:</strong> Password field detected</p>
         <p><strong>Strength:</strong> <span id="helper-strength"></span></p>
@@ -28,10 +72,14 @@ function createFloatingPanel() {
 <div id="save-status" style="margin-top: 8px; font-size: 12px; color: #666;"></div>
 
       </div>
+      </div>
     `;
-    document.body.appendChild(panel);
-    return panel;
+  
+    document.body.appendChild(container);
+    makeDraggable(container, container.querySelector("#drag-handle"));
+    return document.getElementById("password-helper");
   }
+  
   
   let panel = createFloatingPanel();
   let currentPassword = "";
